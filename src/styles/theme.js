@@ -20,9 +20,9 @@ export const theme = {
     DARK_1000: "#192227",
 
     GRADIENT_100:
-      "linear-gradient(90deg, rgba(0,10,15,27.25%), rgba(0,10,15,100%))",
+      "linear-gradient(180deg, rgba(0,10,15,27.25%), rgba(0,10,15,100%))",
     GRADIENT_200:
-      "linear-gradient(90deg, rgba(9,30,38,100%), rgba(0,19,28,100%))",
+      "linear-gradient(180deg, rgba(9,30,38,100%), rgba(0,19,28,100%))",
 
     TOMATO_100: "#750310",
     TOMATO_200: "#92000E",

@@ -9,8 +9,9 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  grid-area: "header";
 
-  padding: 0 12rem;
+  padding: 2.4rem 12rem;
 
   > button {
     max-width: 22rem;

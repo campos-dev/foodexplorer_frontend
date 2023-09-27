@@ -18,7 +18,7 @@ export function Header() {
       </Logo>
       <Input
         Icon={HiOutlineMagnifyingGlass}
-        placeholder="Find by a dish or ingredients"
+        placeholder="Search for a dish or by ingredients"
       />
       <Button Icon={PiReceipt} title={`Orders(${orderAmount})`}></Button>
       <Logout>

@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.button`
   width: 100%;
-  height: 5.6rem;
+  height: 100%;
 
   padding: 0 1.6rem;
-  margin: 3.2rem 0;
 
   display: flex;
   align-items: center;
