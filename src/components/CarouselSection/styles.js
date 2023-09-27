@@ -77,4 +77,8 @@ export const Container = styled.div`
     position: relative;
     /* right: 50px; */
   }
+
+  .control-dots {
+    display: none;
+  }
 `;

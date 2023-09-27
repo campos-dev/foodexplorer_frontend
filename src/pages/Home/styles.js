@@ -8,7 +8,8 @@ export const Container = styled.div`
   grid-template-rows: 10.4rem auto;
   grid-template-areas:
     "header"
-    "content";
+    "content"
+    "footer";
 
   > main {
     width: 100%;
@@ -19,12 +20,10 @@ export const Container = styled.div`
 export const Content = styled.div`
   grid-area: content;
 
-  max-width: 80%;
-
   display: flex;
   flex-direction: column;
 
-  margin: 0 auto;
+  padding: 0 12rem;
 
   #banner {
     width: 110rem;
@@ -37,6 +36,7 @@ export const Content = styled.div`
     position: relative;
 
     margin-top: 16.4rem;
+    border-radius: 0.5rem;
     background: ${({ theme }) => theme.COLORS.GRADIENT_200};
 
     > img {

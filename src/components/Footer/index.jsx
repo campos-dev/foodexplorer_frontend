@@ -18,7 +18,7 @@ export function Footer() {
         </svg>
         <p>food explorer</p>
       </div>
-      <span>© 2023 - Todos os direitos reservados.</span>
+      <span>© 2023 - all rights reserved</span>
     </Container>
   );
 }

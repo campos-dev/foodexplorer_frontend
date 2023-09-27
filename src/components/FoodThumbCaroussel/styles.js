@@ -11,7 +11,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin-right: 2.7rem; */
 
   background: ${({ theme }) => theme.COLORS.DARK_200};
 
@@ -27,33 +26,40 @@ export const Container = styled.div`
     border: none;
   }
 
-  > #imgContainer {
-    width: 17.6rem;
-    height: 17.6rem;
+  > a {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    margin-top: 2.4rem;
+    > #imgContainer {
+      width: 17.6rem;
+      height: 17.6rem;
 
-    img {
-      object-fit: cover;
+      margin-top: 2.4rem;
+
+      img {
+        object-fit: cover;
+      }
     }
-  }
 
-  > h1 {
-    font-size: 2.4rem;
-    font-weight: bold;
+    > h1 {
+      font-size: 2.4rem;
+      font-weight: bold;
 
-    white-space: nowrap;
+      white-space: nowrap;
 
-    margin-top: 1.5rem;
-  }
+      margin-top: 1.5rem;
+    }
 
-  > p {
-    font-family: "Roboto", sans-serif;
-    font-size: 1.4rem;
+    > p {
+      font-family: "Roboto", sans-serif;
+      font-size: 1.4rem;
 
-    margin-top: 1.5rem;
+      margin-top: 1.5rem;
 
-    text-align: center;
+      text-align: center;
+    }
   }
 
   > span {
@@ -75,28 +81,5 @@ export const Container = styled.div`
     font-family: "Roboto", sans-serif;
 
     margin: 1.5rem 0;
-
-    > #changeNumBox {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      margin-right: 1.6rem;
-    }
-
-    .changeNum {
-      font-family: "Roboto", sans-serif;
-      font-size: 2.4rem;
-
-      margin-right: 1.4rem;
-
-      background: none;
-      border: none;
-    }
-
-    p {
-      font-size: 2rem;
-      margin-right: 1.4rem;
-    }
   }
 `;

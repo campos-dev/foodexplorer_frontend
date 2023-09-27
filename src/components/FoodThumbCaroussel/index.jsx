@@ -1,13 +1,8 @@
+import { AmountItems } from "../AmountItems";
 import { Button } from "../Button";
 import { Container } from "./styles";
 
-export function FoodThumbCaroussel({
-  pic,
-  picName,
-  description,
-  price,
-  amount,
-}) {
+export function FoodThumbCaroussel({ pic, picName, description, price }) {
   return (
     <Container>
       <button>
@@ -28,19 +23,16 @@ export function FoodThumbCaroussel({
         </svg>
       </button>
 
-      <div id="imgContainer">
-        <img src={pic} alt={picName} />
-      </div>
-      <h1>{picName} &#62;</h1>
-      <p>{description}</p>
-      <span>{price}</span>
-
-      <div>
-        <div id="changeNumBox">
-          <button className="changeNum">-</button>
-          <p>{amount}</p>
-          <button className="changeNum">+</button>
+      <a href="#">
+        <div id="imgContainer">
+          <img src={pic} alt={picName} />
         </div>
+        <h1>{picName} &#62;</h1>
+        <p>{description}</p>
+      </a>
+      <span>{price}</span>
+      <div>
+        <AmountItems amount={1} />
         <Button title="Buy" />
       </div>
     </Container>
