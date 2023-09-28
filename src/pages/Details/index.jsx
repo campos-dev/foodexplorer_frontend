@@ -41,6 +41,7 @@ export function Details() {
               <div id="addItemsContainer">
                 <AmountItems amount={1} />
                 <Button id="addButton" title={`add ∙ $${9.78}`} />
+                <Button id="removeDishButton" title="exclude dish" />
               </div>
             </div>
           </div>

@@ -13,7 +13,7 @@ export const Container = styled.div`
 
   padding: 2.4rem 12rem;
 
-  > button {
+  > button:first-of-type {
     max-width: 22rem;
     margin-right: 3.2rem;
 

@@ -84,14 +84,20 @@ export const Content = styled.div`
       }
       > #addItemsContainer {
         height: 4.8rem;
+        width: 100%;
 
         margin-top: 4.8rem;
 
         display: flex;
         align-items: center;
 
-        > #addButton {
+        > button:first-of-type {
           width: 11rem;
+        }
+
+        > button:last-of-type {
+          margin-left: 3.2rem;
+          background-color: ${({ theme }) => theme.COLORS.DARK_600};
         }
       }
     }
