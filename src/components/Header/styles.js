@@ -15,7 +15,7 @@ export const Container = styled.div`
 
   > button:first-of-type {
     max-width: 22rem;
-    margin-right: 3.2rem;
+    margin: 0 3.2rem;
 
     > svg {
       font-size: clamp(1.6rem, 5vw, 3.2rem);
@@ -25,8 +25,10 @@ export const Container = styled.div`
 
 export const Logo = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+
+  margin-right: 3.2rem;
 
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-weight: bold;
