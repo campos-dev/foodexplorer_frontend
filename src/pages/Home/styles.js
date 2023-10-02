@@ -8,18 +8,16 @@ export const Container = styled.div`
   grid-template-rows: 10.4rem auto;
   grid-template-areas:
     "header"
-    "content"
-    "footer";
+    "content";
 
   > main {
     width: 100%;
+    grid-area: "content";
     overflow-y: auto;
   }
 `;
 
 export const Content = styled.div`
-  grid-area: content;
-
   display: flex;
   flex-direction: column;
 

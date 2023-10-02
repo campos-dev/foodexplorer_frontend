@@ -2,23 +2,22 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
 
+  display: grid;
   grid-template-rows: 10.4rem auto;
   grid-template-areas:
     "header"
-    "content"
-    "footer";
-  > main {
-    width: 100%;
+    "content";
+
+  main {
+    grid-area: "content";
     overflow-y: auto;
   }
 `;
 
-export const Content = styled.div`
+export const Content = styled.form`
   width: 100%;
-  grid-area: content;
-
   padding: 0 12rem;
 
   #backButton {
@@ -105,17 +104,16 @@ export const Content = styled.div`
     }
 
     #TagsContainer {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
       width: clamp(20vw, 60vw, 70vw);
-      padding: 1.6rem 2.4rem;
+
+      overflow-x: auto;
 
       border-radius: 0.8rem;
       background: ${({ theme }) => theme.COLORS.DARK_800};
-
-      > span {
-        padding: 0.8rem 1.6rem;
-        background: ${({ theme }) => theme.COLORS.LIGHT_600};
-        border-radius: 0.8rem;
-      }
     }
 
     #priceBox > input {
@@ -130,7 +128,7 @@ export const Content = styled.div`
     padding: 1.4rem;
   }
 
-  button:last-of-type {
+  #saveBtn {
     width: 10rem;
     margin: 3.2rem 0;
     padding: 1.2rem 2.4rem;

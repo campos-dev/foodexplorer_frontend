@@ -46,8 +46,8 @@ export function Details() {
             </div>
           </div>
         </Content>
+        <Footer />
       </main>
-      <Footer />
     </Container>
   );
 }

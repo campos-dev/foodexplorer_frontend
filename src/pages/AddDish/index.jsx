@@ -2,6 +2,7 @@ import { Container, Content } from "./styles";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { ButtonText } from "../../components/ButtonText";
+import { NoteItems } from "../../components/NoteItems";
 
 import { AiOutlineUpload } from "react-icons/ai";
 import { Button } from "../../components/Button";
@@ -21,7 +22,7 @@ export function AddDish() {
             <div className="rows">
               <div id="imgPictureBox">
                 <p>Picture</p>
-                <label for="selectImg">
+                <label htmlFor="selectImg">
                   <AiOutlineUpload /> <p>select picture</p>
                 </label>
                 <input id="selectImg" type="file" accept="image/*" />
@@ -46,7 +47,11 @@ export function AddDish() {
               <div id="ingredientsTagBox">
                 <p>Ingredients</p>
                 <div id="TagsContainer">
-                  <span>Naan bread</span>
+                  <NoteItems
+                    value="Naan bread"
+                    isNew
+                    onChange={(e) => console.log(e.target.value)}
+                  />
                 </div>
               </div>
 
@@ -58,11 +63,11 @@ export function AddDish() {
 
             <p>Description</p>
             <textarea placeholder="Information about the dish with ingredients and composition" />
-            <Button title="Save" />
+            <Button id="saveBtn" title="Save" />
           </div>
         </Content>
+        <Footer />
       </main>
-      <Footer />
     </Container>
   );
 }

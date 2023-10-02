@@ -2,22 +2,22 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
 
+  display: grid;
   grid-template-rows: 10.4rem auto;
   grid-template-areas:
     "header"
-    "content"
-    "footer";
+    "content";
+
   > main {
     width: 100%;
+    grid-area: "content";
     overflow-y: auto;
   }
 `;
 
 export const Content = styled.div`
-  grid-area: content;
-
   display: flex;
   flex-direction: column;
 
@@ -45,7 +45,7 @@ export const Content = styled.div`
   #itemContainer {
     height: 40rem;
 
-    margin: 4.2rem 0 15rem;
+    margin: 4.2rem 0;
 
     display: flex;
     align-items: center;

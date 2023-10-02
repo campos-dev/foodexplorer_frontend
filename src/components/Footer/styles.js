@@ -8,12 +8,9 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  grid-area: "footer";
-
-  margin-top: 4.8rem;
-
   background: ${({ theme }) => theme.COLORS.DARK_600};
 
+  margin-top: 4.8rem;
   padding: 0 12.3rem;
 
   > #logo {
