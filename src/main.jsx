@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { EditDish } from "./pages/EditDish";
+import { Routes } from "./routes";
 
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <EditDish />
+      <Routes />
     </ThemeProvider>
   </React.StrictMode>
 );

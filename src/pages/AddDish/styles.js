@@ -25,13 +25,20 @@ export const Content = styled.form`
     font-size: 2.4rem;
 
     margin-top: 2.4rem;
-    padding-left: 0;
 
     display: flex;
     align-items: center;
 
     gap: 1rem;
+
+    > span {
+      font-weight: 100;
+      font-size: 4.4rem;
+
+      padding-top: 0.5rem;
+    }
   }
+
   #addDishContainer {
     display: flex;
     flex-direction: column;

@@ -2,12 +2,13 @@ import { Container, Content } from "./styles";
 
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
-import { ButtonText } from "../../components/ButtonText";
 import { Button } from "../../components/Button";
 import { Tag } from "../../components/Tag";
 
 import Ravanello from "../../assets/foodThumbs/name=ravanello, size=400.png";
 import { AmountItems } from "../../components/AmountItems";
+
+import { Link } from "react-router-dom";
 
 const Tags = [
   { index: 1, title: "lettuce" },
@@ -20,9 +21,9 @@ export function Details() {
       <Header />
       <main>
         <Content>
-          <ButtonText id="backButton">
+          <Link to="/" id="backButton">
             <span>&lt;</span> back
-          </ButtonText>
+          </Link>
 
           <div id="itemContainer">
             <div id="imgItemContainer">

@@ -1,8 +1,9 @@
 import { Container } from "./styles";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
-import { ButtonText } from "../../components/ButtonText";
 import polygon from "../../assets/Polygon 1.svg";
+
+import { Link } from "react-router-dom";
 
 export function Signup() {
   return (
@@ -21,7 +22,7 @@ export function Signup() {
         <p>Password</p>
         <Input type="password" minLength="6" />
         <Button title="Sign up" />
-        <ButtonText>already have an account</ButtonText>
+        <Link to="/">already have an account</Link>
       </form>
     </Container>
   );

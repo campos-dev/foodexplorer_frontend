@@ -51,7 +51,9 @@ export const Container = styled.div`
       padding: 1.2rem 0;
     }
 
-    button:last-of-type {
+    a {
+      text-align: center;
+      font-size: 1.4rem;
       margin-top: 3.2rem;
     }
   }

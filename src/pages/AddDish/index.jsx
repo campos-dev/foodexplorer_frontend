@@ -1,11 +1,12 @@
 import { Container, Content } from "./styles";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
-import { ButtonText } from "../../components/ButtonText";
 import { NoteItems } from "../../components/NoteItems";
 
 import { AiOutlineUpload } from "react-icons/ai";
 import { Button } from "../../components/Button";
+
+import { Link } from "react-router-dom";
 
 export function AddDish() {
   return (
@@ -13,9 +14,9 @@ export function AddDish() {
       <Header />
       <main>
         <Content>
-          <ButtonText id="backButton">
+          <Link to="/" id="backButton">
             <span>&lt;</span> back
-          </ButtonText>
+          </Link>
 
           <h1>Add dish</h1>
           <div id="addDishContainer">
