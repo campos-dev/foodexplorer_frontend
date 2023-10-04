@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { BREAKPOINTS } from "../../styles/breakpoints";
 
 export const Container = styled.div`
   width: 30.4rem;
   height: 46.2rem;
 
-  padding: 0 2.4rem;
+  padding: 0 6.4rem;
 
   border-radius: 0.8rem;
 
@@ -44,7 +45,7 @@ export const Container = styled.div`
     }
 
     > h1 {
-      font-size: 2.4rem;
+      font-size: 2.4vw;
       font-weight: bold;
 
       white-space: nowrap;
@@ -81,5 +82,38 @@ export const Container = styled.div`
     font-family: "Roboto", sans-serif;
 
     margin: 1.5rem 0;
+  }
+
+  @media (max-width: ${BREAKPOINTS.xmd}) {
+    width: 50.4rem;
+    height: 60.2rem;
+    padding: 0 2vw;
+
+    button > svg {
+      height: 5vw;
+    }
+
+    a {
+      h1 {
+        font-size: 4vw;
+      }
+
+      p {
+        font-size: 3vw;
+        margin-bottom: 2vw;
+      }
+    }
+
+    span {
+      font-size: 4vw;
+      margin-bottom: 2vw;
+    }
+    div > div {
+      margin-right: 5vw;
+    }
+
+    button {
+      font-size: 3vw;
+    }
   }
 `;

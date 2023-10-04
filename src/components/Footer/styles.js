@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BREAKPOINTS } from "../../styles/breakpoints";
 
 export const Container = styled.div`
   width: 100%;
@@ -24,10 +25,18 @@ export const Container = styled.div`
       font-size: 2.4rem;
       color: ${({ theme }) => theme.COLORS.LIGHT_700};
     }
+
+    > svg {
+      height: 4.5rem;
+    }
   }
 
   span {
-    font-size: 1.4rem;
+    font-size: 1.4vw;
     color: ${({ theme }) => theme.COLORS.LIGHT_200};
+
+    @media (max-width: ${BREAKPOINTS.sm}) {
+      font-size: 2.4vw;
+    }
   }
 `;

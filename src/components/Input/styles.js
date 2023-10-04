@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BREAKPOINTS } from "../../styles/breakpoints";
 
 export const Container = styled.div`
   width: 100%;
@@ -14,7 +15,7 @@ export const Container = styled.div`
   > svg {
     width: 3.2rem;
     height: 3.2rem;
-    margin-left: 9rem;
+    margin-left: 7rem;
   }
 
   > input {
@@ -26,5 +27,11 @@ export const Container = styled.div`
     background: transparent;
     border: none;
     outline: none;
+  }
+
+  @media (max-width: ${BREAKPOINTS.lg}) {
+    > svg {
+      margin-left: 2rem;
+    }
   }
 `;

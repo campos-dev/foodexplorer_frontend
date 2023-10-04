@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BREAKPOINTS } from "../../styles/breakpoints";
 
 export const Container = styled.div`
   grid-area: header;
@@ -14,12 +15,80 @@ export const Container = styled.div`
 
   padding: 2.4rem 12rem;
 
-  > button:first-of-type {
+  > #buttonMenuCellphone,
+  #buttonOrdersCellphone,
+  #amountButtonOrderCellphone {
+    display: none;
+  }
+
+  > button:nth-of-type(2) {
     max-width: 22rem;
     margin: 0 3.2rem;
 
     > svg {
       font-size: clamp(1.6rem, 5vw, 3.2rem);
+    }
+  }
+
+  @media (max-width: ${BREAKPOINTS.lg}) {
+    padding: 0 10%;
+    height: 12.4rem;
+
+    div:nth-child(3),
+    #buttonLogout,
+    #buttonOrders,
+    #amountButtonOrderCellphone {
+      display: none;
+    }
+
+    #buttonMenuCellphone {
+      display: flex;
+
+      background: none;
+      border: none;
+      font-size: 4vw;
+    }
+
+    #logo {
+      justify-content: center;
+      margin: 0;
+    }
+
+    #buttonOrdersCellphone {
+      display: flex;
+      position: relative;
+      padding: 0;
+
+      background: none;
+      border: none;
+      font-size: 5vw;
+
+      > svg {
+        margin: 0;
+      }
+    }
+
+    #amountButtonOrderCellphone {
+      display: flex;
+      position: absolute;
+
+      font-size: 2vw;
+
+      padding: 0.5vw 1vw;
+
+      background: ${({ theme }) => theme.COLORS.TOMATO_100};
+      border-radius: 50%;
+      top: 2.5vw;
+      right: 9vw;
+    }
+  }
+
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    #buttonMenuCellphone {
+      font-size: 6vw;
+    }
+    #buttonOrdersCellphone {
+      font-size: 7vw;
     }
   }
 `;
@@ -36,8 +105,12 @@ export const Logo = styled.div`
   white-space: nowrap;
 
   img {
-    font-size: clamp(1.8rem, 5vw, 3rem);
+    height: 4.5rem;
     margin-right: 1rem;
+  }
+
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    font-size: 4rem;
   }
 `;
 

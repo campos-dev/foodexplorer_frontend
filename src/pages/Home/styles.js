@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BREAKPOINTS } from "../../styles/breakpoints";
 
 export const Container = styled.div`
   width: 100%;
@@ -21,11 +22,10 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
 
-  padding: 0 12rem;
+  padding: 0 10%;
 
   #banner {
-    width: 110rem;
-    height: 26rem;
+    height: 25vw;
 
     display: flex;
     justify-content: right;
@@ -33,19 +33,21 @@ export const Content = styled.div`
 
     position: relative;
 
-    margin-top: 16.4rem;
+    margin-top: 15vw;
+    margin-bottom: 8vw;
     border-radius: 0.5rem;
     background: ${({ theme }) => theme.COLORS.GRADIENT_200};
 
     > img {
       position: absolute;
+      height: 30vw;
 
       bottom: 0rem;
-      left: -5.3rem;
+      left: -6.3rem;
     }
 
     > #textContainer {
-      margin-right: 10rem;
+      margin-right: 3vw;
 
       h1 {
         font-size: 4.2rem;
@@ -55,6 +57,16 @@ export const Content = styled.div`
       p {
         font-size: 1.6rem;
         font-weight: 100;
+      }
+      @media (max-width: ${BREAKPOINTS.sm}) {
+        padding-left: 45rem;
+        h1 {
+          line-height: 4rem;
+        }
+        p {
+          padding-top: 2rem;
+          font-size: 2.6vw;
+        }
       }
     }
   }

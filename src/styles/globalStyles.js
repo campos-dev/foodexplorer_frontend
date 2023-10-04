@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { BREAKPOINTS } from "./breakpoints";
 
 export default createGlobalStyle`
 
@@ -6,9 +7,10 @@ export default createGlobalStyle`
         margin:0;
         padding:0;
         box-sizing: border-box;
+  
     }
 
-    html{
+    :root{
     font-size:62.5%;
     }
 
@@ -44,6 +46,12 @@ export default createGlobalStyle`
 
     button:hover, a:hover {
         filter:brightness(.8)
+    }
+
+    @media (max-width: ${BREAKPOINTS.lg}) {
+        :root{
+             font-size:1vw;
+        }
     }
 
 `;

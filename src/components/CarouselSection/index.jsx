@@ -18,6 +18,14 @@ export function CarouselSection({ title, items }) {
     );
   };
 
+  const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
+
+  React.useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <Container>
       {title}
@@ -32,9 +40,10 @@ export function CarouselSection({ title, items }) {
             className="carousel slide"
             infiniteLoop
             centerMode
-            centerSlidePercentage={32}
+            centerSlidePercentage={windowWidth > 650 ? 50 : 80}
             showThumbs={false}
             showArrows={false}
+            swipeable={false}
           >
             {items.map((item, index) => (
               <div key={index}>{item}</div>

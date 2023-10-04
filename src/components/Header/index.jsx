@@ -1,6 +1,7 @@
 import { Container, Logo, Logout } from "./styles";
 import { MdOutlineLogout } from "react-icons/md";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
+import { AiOutlineMenu } from "react-icons/ai";
 import { PiReceipt } from "react-icons/pi";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
@@ -12,7 +13,10 @@ export function Header() {
 
   return (
     <Container>
-      <Logo>
+      <button id="buttonMenuCellphone">
+        <AiOutlineMenu />
+      </button>
+      <Logo id="logo">
         <img src={polygon_logo} alt="food explorer logo" />
         <span>food explorer</span>
       </Logo>
@@ -20,8 +24,16 @@ export function Header() {
         Icon={HiOutlineMagnifyingGlass}
         placeholder="Search for a dish or by ingredients"
       />
-      <Button Icon={PiReceipt} title={`Orders(${orderAmount})`}></Button>
-      <Logout>
+      <Button
+        id="buttonOrders"
+        Icon={PiReceipt}
+        title={`Orders (${orderAmount})`}
+      ></Button>
+
+      <Button id="buttonOrdersCellphone" Icon={PiReceipt} />
+      <span id="amountButtonOrderCellphone">{orderAmount}</span>
+
+      <Logout id="buttonLogout">
         <MdOutlineLogout />
       </Logout>
     </Container>
