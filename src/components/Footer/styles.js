@@ -11,7 +11,7 @@ export const Container = styled.div`
 
   background: ${({ theme }) => theme.COLORS.DARK_600};
 
-  margin-top: 4.8rem;
+  margin-top: auto;
   padding: 0 12.3rem;
 
   > #logo {

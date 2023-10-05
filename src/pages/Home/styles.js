@@ -6,7 +6,7 @@ export const Container = styled.div`
   height: 100vh;
 
   display: grid;
-  grid-template-rows: 10.4rem auto;
+  grid-template-rows: 12.4rem auto;
   grid-template-areas:
     "header"
     "content";
@@ -23,6 +23,7 @@ export const Content = styled.div`
   flex-direction: column;
 
   padding: 0 10%;
+  margin-bottom: 4.6rem;
 
   #banner {
     height: 25vw;

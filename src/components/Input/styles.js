@@ -29,6 +29,24 @@ export const Container = styled.div`
     outline: none;
   }
 
+  @media (max-width: ${BREAKPOINTS.md}) {
+    height: 9vw;
+
+    > input {
+      font-size: 3vw;
+    }
+
+    > svg {
+      width: 5vw;
+      height: 5vw;
+      padding-bottom: 0.5vw;
+    }
+
+    input::placeholder {
+      font-size: 3vw;
+    }
+  }
+
   @media (max-width: ${BREAKPOINTS.lg}) {
     > svg {
       margin-left: 2rem;
