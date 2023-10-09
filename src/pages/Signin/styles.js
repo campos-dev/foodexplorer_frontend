@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BREAKPOINTS } from "../../styles/breakpoints";
 
 export const Container = styled.div`
   width: 100%;
@@ -55,6 +56,60 @@ export const Container = styled.div`
       text-align: center;
       font-size: 1.4rem;
       margin-top: 3.2rem;
+    }
+  }
+
+  @media (max-width: ${BREAKPOINTS.md}) {
+    display: flex;
+    flex-direction: column;
+
+    #logo {
+      margin: 3vw 0 0 0;
+    }
+
+    #userInfoBox {
+      width: 60%;
+
+      padding: 2vw;
+
+      background: none;
+
+      div {
+        height: 7vw;
+      }
+
+      h1 {
+        font-size: 3vw;
+      }
+
+      a,
+      p {
+        margin: 2.2rem 0 0.8rem;
+        font-size: 2vw;
+      }
+      button:first-of-type {
+        padding: 3.5vw 0;
+        margin-top: 5vw;
+      }
+    }
+  }
+
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    #userInfoBox {
+      h1 {
+        font-size: 5vw;
+      }
+
+      a,
+      p {
+        font-size: 3vw;
+      }
+
+      button {
+        padding-top: 10rem;
+        height: 7vw;
+        font-size: 3vw;
+      }
     }
   }
 `;

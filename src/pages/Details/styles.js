@@ -1,19 +1,32 @@
 import styled from "styled-components";
+import { BREAKPOINTS } from "../../styles/breakpoints";
 
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
 
   display: grid;
-  grid-template-rows: 10.4rem auto;
+  grid-template-rows: 12.4rem auto;
   grid-template-areas:
     "header"
     "content";
 
-  > main {
+  main {
     width: 100%;
+    height: auto;
     grid-area: "content";
     overflow-y: auto;
+  }
+  @media (max-width: ${BREAKPOINTS.lg}) {
+    main {
+      display: flex;
+      flex-direction: column;
+
+      > footer {
+        padding: 5vw 4vw;
+        margin-top: 100vw;
+      }
+    }
   }
 `;
 
@@ -99,6 +112,76 @@ export const Content = styled.div`
           margin-left: 3.2rem;
           background-color: ${({ theme }) => theme.COLORS.DARK_600};
         }
+      }
+    }
+  }
+
+  @media (max-width: ${BREAKPOINTS.lg}) {
+    #itemContainer {
+      flex-direction: column;
+
+      #imgItemContainer {
+        text-align: center;
+        width: 30vw;
+        height: 30vw;
+
+        > img {
+          width: 30vw;
+          height: 30vw;
+        }
+      }
+
+      #aboutItemContainer {
+        text-align: center;
+
+        h1 {
+          font-size: 6vw;
+          margin-bottom: 2vw;
+        }
+
+        p {
+          font-size: 3vw;
+          text-align: center;
+        }
+        > #tagsContainer {
+          margin: 3vw 0;
+          flex-wrap: wrap;
+          > span {
+            font-size: 3vw;
+          }
+        }
+        #addItemsContainer {
+          justify-content: space-between;
+
+          div:first-of-type {
+            height: 20vw;
+            width: 20vw;
+            > button {
+              font-size: 6vw;
+            }
+            > p {
+              font-size: 4vw;
+            }
+          }
+
+          > button:first-of-type {
+            white-space: nowrap;
+            margin-left: 20vw;
+            padding: 0 10vw;
+            font-size: 3vw;
+          }
+
+          > button:last-of-type {
+            white-space: nowrap;
+            font-size: 3vw;
+          }
+        }
+      }
+    }
+
+    @media (max-width: ${BREAKPOINTS.xmd}) {
+      #backButton {
+        font-size: 4vw;
       }
     }
   }

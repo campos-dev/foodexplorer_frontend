@@ -4,7 +4,7 @@ import { BREAKPOINTS } from "../../styles/breakpoints";
 export const Container = styled.div`
   grid-area: header;
   width: 100%;
-  height: 10.4rem;
+  height: 12.4rem;
 
   background: ${({ theme }) => theme.COLORS.DARK_600};
 
@@ -21,9 +21,14 @@ export const Container = styled.div`
     display: none;
   }
 
+  > div:nth-of-type(2) {
+    max-width: 50vw;
+  }
+
   > button:nth-of-type(2) {
-    max-width: 22rem;
-    margin: 0 3.2rem;
+    white-space: nowrap;
+    max-width: 25rem;
+    margin: 0 4.2rem;
 
     > svg {
       font-size: clamp(1.6rem, 5vw, 3.2rem);

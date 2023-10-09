@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { BREAKPOINTS } from "../../styles/breakpoints";
 
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
 
   display: grid;
-  grid-template-rows: 10.4rem auto;
+  grid-template-rows: 12.4rem auto;
   grid-template-areas:
     "header"
     "content";
@@ -96,7 +97,7 @@ export const Content = styled.form`
     }
 
     #dishNameBox > input {
-      width: clamp(20vw, 40vw, 46vw);
+      width: clamp(20vw, 30vw, 46vw);
 
       padding: 1.6rem 0 1.6rem 1.4rem;
     }
@@ -115,7 +116,7 @@ export const Content = styled.form`
       align-items: center;
       flex-wrap: wrap;
 
-      width: clamp(20vw, 60vw, 70vw);
+      width: clamp(20vw, 50vw, 70vw);
 
       overflow-x: auto;
 
@@ -134,20 +135,133 @@ export const Content = styled.form`
     resize: none;
     padding: 1.4rem;
   }
+
   .editButtons {
     display: flex;
     align-self: flex-end;
 
     .Btn {
-      width: 10rem;
+      width: 10vw;
       margin: 3.2rem 0;
       padding: 1.2rem 2.4rem;
+
+      font-size: 3vw;
     }
 
     .remove {
-      width: 15rem;
+      width: 15vw;
       margin-right: 1.5rem;
       background: ${({ theme }) => theme.COLORS.DARK_600};
+    }
+  }
+
+  @media (max-width: ${BREAKPOINTS.xlg}) {
+    #TagsContainer {
+      > div {
+        width: 15vw;
+      }
+    }
+    .editButtons {
+      .Btn {
+        font-size: 1.5vw;
+      }
+    }
+  }
+
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    display: flex;
+    flex-direction: column;
+
+    #backButton {
+      font-size: 4vw;
+      margin: 4vw 0 2vw;
+      > span {
+        font-size: 7vw;
+      }
+    }
+
+    h1 {
+      font-size: 5.5vw;
+      margin-top: 0;
+    }
+
+    .rows {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+
+      input,
+      textArea,
+      select,
+      label,
+      #dishNameBox > input,
+      #dishCategory > select,
+      #TagsContainer {
+        height: 8vw;
+        width: 100%;
+      }
+
+      #TagsContainer {
+        height: auto;
+        > div {
+          width: 30vw;
+          > input {
+            font-size: 3vw;
+          }
+        }
+      }
+
+      label {
+        padding: 0 3vw;
+
+        justify-content: flex-start;
+
+        > svg {
+          font-size: 5vw;
+        }
+
+        > p {
+          font-size: 3vw;
+        }
+      }
+
+      #dishCategory > select,
+      input::placeholder,
+      input {
+        font-size: 3vw;
+      }
+
+      > div {
+        width: 100%;
+      }
+
+      p {
+        font-size: 4vw;
+      }
+    }
+    textarea::placeholder,
+    p {
+      font-size: 3vw;
+    }
+
+    #saveBtn {
+      width: 20vw;
+      height: 7vw;
+      margin-bottom: 7vw;
+    }
+
+    .editButtons {
+      .Btn {
+        font-size: 3vw;
+        width: 20vw;
+        margin: 7vw 0;
+        height: 7vw;
+      }
+
+      .remove {
+        width: 25vw;
+        margin-right: 5vw;
+      }
     }
   }
 `;
