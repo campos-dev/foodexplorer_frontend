@@ -35,6 +35,19 @@ export const Container = styled.div`
     }
   }
 
+  #logoBox {
+    margin-right: 3.2rem;
+
+    display: flex;
+    flex-direction: column;
+    > span {
+      color: ${({ theme }) => theme.COLORS.CAKE_200};
+      font-size: 1.2rem;
+      align-self: self-end;
+      margin-top: -1rem;
+    }
+  }
+
   @media (max-width: ${BREAKPOINTS.lg}) {
     padding: 0 10%;
     height: 12.4rem;
@@ -102,8 +115,6 @@ export const Logo = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
-  margin-right: 3.2rem;
 
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-weight: bold;

@@ -5,7 +5,11 @@ import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { Input } from "../../components/Input";
 import { Footer } from "../../components/Footer";
 
+import { useAuth } from "../../hooks/auth";
+
 export function Menu({ menuIsOpen, setMenuIsOpen }) {
+  const { signOut } = useAuth();
+
   return (
     <Container data-menuisopen={menuIsOpen}>
       <div id="closeMenuBar">
@@ -20,7 +24,9 @@ export function Menu({ menuIsOpen, setMenuIsOpen }) {
           placeholder="Search for a dish or by ingredients"
         />
 
-        <Logout id="buttonLogout">Sair</Logout>
+        <Logout id="buttonLogout" onClick={signOut}>
+          Sair
+        </Logout>
         <div id="line"></div>
       </div>
       <Footer />

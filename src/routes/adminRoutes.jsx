@@ -5,7 +5,7 @@ import { AddDish } from "../pages/AddDish";
 import { EditDish } from "../pages/EditDish";
 import { Details } from "../pages/Details";
 
-export function AppRoutes() {
+export function AdminRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />

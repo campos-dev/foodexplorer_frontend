@@ -12,9 +12,14 @@ import { Menu } from "../../components/Menu";
 
 import polygon_logo from "../../assets/Polygon 1.svg";
 
+import { useAuth } from "../../hooks/auth";
+import { USER_ROLE } from "../../utils/roles";
+
 export function Header() {
   let orderAmount = 0;
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+  const { user, signOut } = useAuth();
 
   return (
     <>
@@ -23,24 +28,37 @@ export function Header() {
         <button id="buttonMenuCellphone">
           <AiOutlineMenu onClick={() => setMenuIsOpen(true)} />
         </button>
-        <Logo id="logo">
-          <img src={polygon_logo} alt="food explorer logo" />
-          <span>food explorer</span>
-        </Logo>
+
+        <div id="logoBox">
+          <Logo id="logo">
+            <img src={polygon_logo} alt="food explorer logo" />
+            <span>food explorer</span>
+          </Logo>
+          {user.role === USER_ROLE.ADMIN ? (
+            <span id="adminBadge">admin</span>
+          ) : (
+            <></>
+          )}
+        </div>
+
         <Input
           Icon={HiOutlineMagnifyingGlass}
           placeholder="Search for a dish or by ingredients"
         />
-        <Button
-          id="buttonOrders"
-          Icon={PiReceipt}
-          title={`Orders (${orderAmount})`}
-        ></Button>
+        {user.role === USER_ROLE.ADMIN ? (
+          <Button id="addDish" title="Add dish"></Button>
+        ) : (
+          <Button
+            id="buttonOrders"
+            Icon={PiReceipt}
+            title={`Orders (${orderAmount})`}
+          ></Button>
+        )}
 
         <Button id="buttonOrdersCellphone" Icon={PiReceipt} />
         <span id="amountButtonOrderCellphone">{orderAmount}</span>
 
-        <Logout id="buttonLogout">
+        <Logout id="buttonLogout" onClick={signOut}>
           <MdOutlineLogout />
         </Logout>
       </Container>

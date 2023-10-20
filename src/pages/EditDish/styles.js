@@ -145,7 +145,7 @@ export const Content = styled.form`
       margin: 3.2rem 0;
       padding: 1.2rem 2.4rem;
 
-      font-size: 3vw;
+      font-size: 1vw;
     }
 
     .remove {

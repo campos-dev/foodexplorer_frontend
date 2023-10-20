@@ -25,6 +25,10 @@ export const Container = styled.div`
 
     background: none;
     border: none;
+
+    > svg {
+      height: 2vw;
+    }
   }
 
   > a {
@@ -90,7 +94,7 @@ export const Container = styled.div`
     padding: 0 2vw;
 
     button > svg {
-      height: 5vw;
+      height: 3vw;
     }
 
     a {
