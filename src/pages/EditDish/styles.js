@@ -27,7 +27,7 @@ export const Content = styled.form`
 
     margin-top: 2.4rem;
 
-    display: flex;
+    display: inline-flex;
     align-items: center;
 
     gap: 1rem;
@@ -55,13 +55,17 @@ export const Content = styled.form`
     margin: 3.2rem 0 1.6rem;
   }
 
-  input,
+  input:not(#TagsContainer input),
   textArea,
   select,
   label {
     border: none;
     border-radius: 0.8rem;
     background: ${({ theme }) => theme.COLORS.DARK_800};
+
+    &:focus {
+      outline: none;
+    }
   }
 
   .rows {
@@ -116,7 +120,7 @@ export const Content = styled.form`
       align-items: center;
       flex-wrap: wrap;
 
-      width: clamp(20vw, 50vw, 70vw);
+      width: clamp(20vw, 55vw, 70vw);
 
       overflow-x: auto;
 
@@ -158,6 +162,11 @@ export const Content = styled.form`
   @media (max-width: ${BREAKPOINTS.xlg}) {
     #TagsContainer {
       > div {
+        width: 16vw;
+      }
+    }
+    #priceBox {
+      > input {
         width: 15vw;
       }
     }
@@ -240,6 +249,7 @@ export const Content = styled.form`
       }
     }
     textarea::placeholder,
+    textarea,
     p {
       font-size: 3vw;
     }

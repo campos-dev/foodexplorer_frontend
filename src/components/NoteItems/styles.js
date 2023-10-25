@@ -25,12 +25,17 @@ export const Container = styled.div`
 
   input {
     width: 100%;
-    height: 3.2rem;
+    height: 2.2rem;
 
-    background: none;
+    background: ${({ theme, $isnew }) =>
+      $isnew ? "transparent" : theme.COLORS.LIGHT_600};
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
     padding: 1.2rem;
     border: none;
+
+    &:focus {
+      outline: none;
+    }
   }
 `;

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { AmountItems } from "../AmountItems";
 import { Button } from "../Button";
 import { Container } from "./styles";
@@ -5,12 +6,12 @@ import { Container } from "./styles";
 import { useAuth } from "../../hooks/auth";
 import { USER_ROLE } from "../../utils/roles";
 
-export function FoodThumbCaroussel({ pic, picName, description, price }) {
+export function FoodThumbCaroussel({ id, pic, picName, description, price }) {
   const { user } = useAuth();
   return (
     <Container>
-      <button>
-        {user.role === USER_ROLE.ADMIN ? (
+      {user.role === USER_ROLE.ADMIN ? (
+        <Link to={`/edit/${id}`} className="editFavIcons">
           <svg
             id="editIcon"
             width="26"
@@ -27,7 +28,9 @@ export function FoodThumbCaroussel({ pic, picName, description, price }) {
               strokeLinejoin="round"
             />
           </svg>
-        ) : (
+        </Link>
+      ) : (
+        <Link className="editFavIcons">
           <svg
             id="favoriteIcon"
             width="26"
@@ -44,17 +47,17 @@ export function FoodThumbCaroussel({ pic, picName, description, price }) {
               strokeLinejoin="round"
             />
           </svg>
-        )}
-      </button>
+        </Link>
+      )}
 
-      <a href="#">
+      <Link to={`/details/${id}`}>
         <div id="imgContainer">
           <img src={pic} alt={picName} />
         </div>
         <h1>{picName} &#62;</h1>
         <p>{description}</p>
-      </a>
-      <span>{price}</span>
+      </Link>
+      <span>${price}</span>
       <div>
         <AmountItems amount={1} />
         <Button title="Buy" />

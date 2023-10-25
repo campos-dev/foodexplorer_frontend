@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { BREAKPOINTS } from "../../styles/breakpoints";
 
 export const Container = styled.div`
-  width: 30.4rem;
+  width: 32.4rem;
   height: 46.2rem;
 
   padding: 0 6.4rem;
@@ -17,7 +17,7 @@ export const Container = styled.div`
 
   position: relative;
 
-  > button {
+  > .editFavIcons {
     position: absolute;
 
     top: 1.6rem;
@@ -93,8 +93,8 @@ export const Container = styled.div`
     height: 60.2rem;
     padding: 0 2vw;
 
-    button > svg {
-      height: 3vw;
+    .editFavIcons > svg {
+      height: 4vw;
     }
 
     a {

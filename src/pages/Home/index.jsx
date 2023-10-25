@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { api } from "../../services/api";
 
 import { Container, Content } from "./styles";
 import { Header } from "../../components/Header";
@@ -8,88 +9,60 @@ import { Footer } from "../../components/Footer";
 
 import macarons from "../../assets/macarons.png";
 
-import Ravanello from "../../assets/foodThumbs/name=ravanello, size=400.png";
-
-let mealItems = [
-  <FoodThumbCaroussel
-    pic={Ravanello}
-    picName="Ravanello Salad1"
-    description="Radishes, green leaves and sweet and sour sauce sprinkled with sesame seeds"
-    price="$9.97"
-    amount="01"
-  />,
-  <FoodThumbCaroussel
-    pic={Ravanello}
-    picName="Ravanello Salad2"
-    description="Radishes, green leaves and sweet and sour sauce sprinkled with sesame seeds"
-    price="$9.97"
-    amount="01"
-  />,
-  <FoodThumbCaroussel
-    pic={Ravanello}
-    picName="Ravanello Salad3"
-    description="Radishes, green leaves and sweet and sour sauce sprinkled with sesame seeds"
-    price="$9.97"
-    amount="01"
-  />,
-  <FoodThumbCaroussel
-    pic={Ravanello}
-    picName="Ravanello Salad4"
-    description="Radishes, green leaves and sweet and sour sauce sprinkled with sesame seeds"
-    price="$9.97"
-    amount="01"
-  />,
-  <FoodThumbCaroussel
-    pic=""
-    picName="Another dish"
-    description="Example of another dish"
-    price="$19.97"
-    amount="01"
-  />,
-];
-
-let dessertItems = [
-  <FoodThumbCaroussel
-    pic=""
-    picName="Flan1"
-    description="Sweet caramel puding"
-    price="$5.99"
-    amount="01"
-  />,
-  <FoodThumbCaroussel
-    pic=""
-    picName="Flan2"
-    description="Sweet caramel puding"
-    price="$5.99"
-    amount="01"
-  />,
-];
-
-let drinkItems = [
-  <FoodThumbCaroussel
-    pic=""
-    picName="AppleJuice1"
-    description="Sweet caramel puding"
-    price="$4.99"
-    amount="01"
-  />,
-  <FoodThumbCaroussel
-    pic=""
-    picName="AppleJuice2"
-    description="Sweet caramel puding"
-    price="$4.99"
-    amount="01"
-  />,
-  <FoodThumbCaroussel
-    pic=""
-    picName="AppleJuice3"
-    description="Sweet caramel puding"
-    price="$4.99"
-    amount="01"
-  />,
-];
-
 export function Home() {
+  const [mealItems, setMealItems] = useState([]);
+  const [dessertItems, setDessertItems] = useState([]);
+  const [drinkItems, setDrinkItems] = useState([]);
+
+  useEffect(() => {
+    api.get("dishes?title&tags&category=meal").then((response) => {
+      const meals = response.data;
+      const mealComponents = meals.map((meal) => (
+        <FoodThumbCaroussel
+          key={meal.id}
+          id={meal.id}
+          pic={meal.avatar}
+          picName={meal.title}
+          description={meal.description}
+          price={meal.price}
+          amount={meal.amount}
+        />
+      ));
+      setMealItems(mealComponents);
+    });
+
+    api.get("dishes?title&tags&category=dessert").then((response) => {
+      const desserts = response.data;
+      const dessertComponents = desserts.map((dessert) => (
+        <FoodThumbCaroussel
+          key={dessert.id}
+          id={dessert.id}
+          pic={dessert.avatar}
+          picName={dessert.title}
+          description={dessert.description}
+          price={dessert.price}
+          amount={dessert.amount}
+        />
+      ));
+      setDessertItems(dessertComponents);
+    });
+
+    api.get("dishes?title&tags&category=drink").then((response) => {
+      const drinks = response.data;
+      const drinkComponents = drinks.map((drink) => (
+        <FoodThumbCaroussel
+          key={drink.id}
+          id={drink.id}
+          pic={drink.avatar}
+          picName={drink.title}
+          description={drink.description}
+          price={drink.price}
+          amount={drink.amount}
+        />
+      ));
+      setDrinkItems(drinkComponents);
+    });
+  }, []);
   return (
     <Container>
       <Header />
@@ -106,9 +79,9 @@ export function Home() {
 
           <CarouselSection title="Meals" items={mealItems} />
 
-          <CarouselSection title="Desserts" items={dessertItems} />
-
           <CarouselSection title="Drinks" items={drinkItems} />
+
+          <CarouselSection title="Desserts" items={dessertItems} />
         </Content>
         <Footer />
       </main>

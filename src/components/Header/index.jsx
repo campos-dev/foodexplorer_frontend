@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Container, Logo, Logout } from "./styles";
 import { MdOutlineLogout } from "react-icons/md";
@@ -20,6 +21,12 @@ export function Header() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const { user, signOut } = useAuth();
+
+  const navigate = useNavigate();
+
+  const navigateToAddDish = () => {
+    navigate("/add");
+  };
 
   return (
     <>
@@ -46,7 +53,11 @@ export function Header() {
           placeholder="Search for a dish or by ingredients"
         />
         {user.role === USER_ROLE.ADMIN ? (
-          <Button id="addDish" title="Add dish"></Button>
+          <Button
+            id="addDish"
+            title="Add dish"
+            onClick={navigateToAddDish}
+          ></Button>
         ) : (
           <Button
             id="buttonOrders"
