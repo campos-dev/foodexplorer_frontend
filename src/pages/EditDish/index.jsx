@@ -10,8 +10,12 @@ import { Button } from "../../components/Button";
 
 import { useParams, useNavigate, Link } from "react-router-dom";
 
+import { useAvatar } from "../../hooks/useAvatar";
+
 export function EditDish() {
-  const [avatar, setAvatar] = useState("");
+  const { avatarFile, avatarFileName, handleChangeAvatar, handleUpdateAvatar } =
+    useAvatar();
+
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [tags, setTags] = useState([]);
@@ -48,7 +52,6 @@ export function EditDish() {
       await api.put(
         `/dishes/${id}`,
         {
-          avatar,
           title,
           category,
           description,
@@ -57,6 +60,9 @@ export function EditDish() {
         },
         { withCredentials: true }
       );
+
+      await handleUpdateAvatar(id);
+
       alert("Item was updated succesfully!");
       navigate("/");
     } catch (error) {
@@ -111,14 +117,19 @@ export function EditDish() {
               <div id="imgPictureBox">
                 <p>Picture</p>
                 <label htmlFor="selectImg">
-                  <AiOutlineUpload /> <p>select picture</p>
+                  {avatarFile ? (
+                    avatarFileName
+                  ) : (
+                    <>
+                      <AiOutlineUpload /> <p>select picture</p>
+                    </>
+                  )}
                 </label>
                 <input
                   id="selectImg"
                   type="file"
                   accept="image/*"
-                  value={avatar}
-                  onChange={(e) => setAvatar(e.target.value)}
+                  onChange={(event) => handleChangeAvatar(event)}
                 />
               </div>
 

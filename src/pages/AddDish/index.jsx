@@ -10,8 +10,12 @@ import { Button } from "../../components/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 
+import { useAvatar } from "../../hooks/useAvatar";
+
 export function AddDish() {
-  const [avatar, setAvatar] = useState("");
+  const { avatarFile, avatarFileName, handleChangeAvatar, handleUpdateAvatar } =
+    useAvatar();
+
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("meal");
   const [description, setDescription] = useState("");
@@ -45,7 +49,6 @@ export function AddDish() {
       await api.post(
         "/dishes",
         {
-          avatar,
           title,
           category,
           description,
@@ -54,6 +57,9 @@ export function AddDish() {
         },
         { withCredentials: true }
       );
+
+      await handleUpdateAvatar();
+
       alert("Item was registered succesfully!");
       navigate("/");
     } catch (error) {
@@ -63,15 +69,6 @@ export function AddDish() {
       );
     }
   }
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setAvatar(reader.result);
-    };
-    reader.readAsDataURL(file);
-  };
 
   return (
     <Container>
@@ -88,13 +85,19 @@ export function AddDish() {
               <div id="imgPictureBox">
                 <p>Picture</p>
                 <label htmlFor="selectImg">
-                  <AiOutlineUpload /> <p>select picture</p>
+                  {avatarFile ? (
+                    avatarFileName
+                  ) : (
+                    <>
+                      <AiOutlineUpload /> <p>select picture</p>
+                    </>
+                  )}
                 </label>
                 <input
                   id="selectImg"
                   type="file"
                   accept="image/*"
-                  onChange={handleFileChange}
+                  onChange={(event) => handleChangeAvatar(event)}
                 />
               </div>
 

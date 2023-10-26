@@ -33,6 +33,7 @@ export const Container = styled.div`
 
     padding: 1.2rem;
     border: none;
+    border-radius: 0.5rem;
 
     &:focus {
       outline: none;

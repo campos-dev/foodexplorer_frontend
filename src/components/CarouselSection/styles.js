@@ -36,7 +36,7 @@ export const Container = styled.div`
   }
 
   #CarouselContainer::before {
-    left: 0;
+    left: -1px;
     background: linear-gradient(
       to right,
       ${({ theme }) => theme.COLORS.DARK_400},
@@ -45,7 +45,7 @@ export const Container = styled.div`
   }
 
   #CarouselContainer::after {
-    right: 0;
+    right: -1px;
     background: linear-gradient(
       to left,
       ${({ theme }) => theme.COLORS.DARK_400},

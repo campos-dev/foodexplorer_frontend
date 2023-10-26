@@ -21,7 +21,7 @@ export function Home() {
         <FoodThumbCaroussel
           key={meal.id}
           id={meal.id}
-          pic={meal.avatar}
+          avatar={meal.avatar}
           picName={meal.title}
           description={meal.description}
           price={meal.price}
@@ -37,7 +37,7 @@ export function Home() {
         <FoodThumbCaroussel
           key={dessert.id}
           id={dessert.id}
-          pic={dessert.avatar}
+          avatar={dessert.avatar}
           picName={dessert.title}
           description={dessert.description}
           price={dessert.price}
@@ -53,7 +53,7 @@ export function Home() {
         <FoodThumbCaroussel
           key={drink.id}
           id={drink.id}
-          pic={drink.avatar}
+          avatar={drink.avatar}
           picName={drink.title}
           description={drink.description}
           price={drink.price}

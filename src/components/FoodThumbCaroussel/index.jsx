@@ -6,8 +6,21 @@ import { Container } from "./styles";
 import { useAuth } from "../../hooks/auth";
 import { USER_ROLE } from "../../utils/roles";
 
-export function FoodThumbCaroussel({ id, pic, picName, description, price }) {
+import { api } from "../../services/api";
+import avatarPlaceholder from "../../assets/img-placeholder.png";
+
+export function FoodThumbCaroussel({
+  id,
+  avatar,
+  picName,
+  description,
+  price,
+}) {
   const { user } = useAuth();
+
+  const avatarURL = avatar
+    ? `${api.defaults.baseURL}/files/${avatar}`
+    : avatarPlaceholder;
   return (
     <Container>
       {user.role === USER_ROLE.ADMIN ? (
@@ -52,7 +65,7 @@ export function FoodThumbCaroussel({ id, pic, picName, description, price }) {
 
       <Link to={`/details/${id}`}>
         <div id="imgContainer">
-          <img src={pic} alt={picName} />
+          <img src={avatarURL} alt={picName} />
         </div>
         <h1>{picName} &#62;</h1>
         <p>{description}</p>
