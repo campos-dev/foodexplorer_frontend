@@ -42,9 +42,9 @@ export function Header() {
             <span>food explorer</span>
           </Logo>
           {user.role === USER_ROLE.ADMIN ? (
-            <span id="adminBadge">admin</span>
+            <span className="profileBadge">admin</span>
           ) : (
-            <></>
+            <span className="profileBadge">{user.name}</span>
           )}
         </div>
 
