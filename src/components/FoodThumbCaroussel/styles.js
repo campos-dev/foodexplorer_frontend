@@ -66,7 +66,7 @@ export const Container = styled.div`
       font-family: "Roboto", sans-serif;
       font-size: 1.4rem;
 
-      margin-top: 1.5rem;
+      /* margin-top: 0.5rem; */
 
       text-align: center;
     }

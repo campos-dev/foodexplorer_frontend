@@ -190,9 +190,10 @@ export function EditDish() {
 
             <p>Description</p>
             <textarea
-              placeholder="Information about the dish with ingredients and composition"
+              placeholder="Information about the dish with ingredients and composition. Maximum of 250 characters"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              maxLength={250}
             />
             <div className="editButtons">
               <Button

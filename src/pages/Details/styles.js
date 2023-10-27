@@ -61,8 +61,9 @@ export const Content = styled.div`
     margin: 4.2rem 0;
 
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 4.7rem;
+    gap: 10.7rem;
 
     > #imgItemContainer {
       width: 40rem;
@@ -70,6 +71,11 @@ export const Content = styled.div`
 
       > img {
         object-fit: cover;
+
+        width: 40rem;
+        height: 40rem;
+
+        border-radius: 50%;
       }
     }
 
@@ -83,7 +89,7 @@ export const Content = styled.div`
 
       > p {
         font-family: "Poppins", sans-serif;
-        font-size: 2.4rem;
+        font-size: 2rem;
         text-align: justify;
       }
 

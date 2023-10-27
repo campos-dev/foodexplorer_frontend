@@ -156,9 +156,10 @@ export function AddDish() {
 
             <p>Description</p>
             <textarea
-              placeholder="Information about the dish with ingredients and composition"
+              placeholder="Information about the dish with ingredients and composition. Maximu of 250 characters"
               onChange={(e) => setDescription(e.target.value)}
               value={description}
+              maxLength={250}
             />
             <Button id="saveBtn" title="Save" onClick={handleAddDish} />
           </div>
