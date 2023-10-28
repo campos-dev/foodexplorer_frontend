@@ -15,6 +15,10 @@ export const Container = styled.div`
     width: 100%;
     grid-area: "content";
     overflow-y: auto;
+
+    > footer {
+      margin-top: 12rem;
+    }
   }
 `;
 
@@ -59,6 +63,7 @@ export const Content = styled.div`
         font-size: 1.6rem;
         font-weight: 100;
       }
+
       @media (max-width: ${BREAKPOINTS.sm}) {
         padding-left: 45rem;
         h1 {

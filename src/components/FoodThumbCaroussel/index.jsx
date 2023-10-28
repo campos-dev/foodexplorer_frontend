@@ -29,7 +29,7 @@ export function FoodThumbCaroussel({
   const [isFavorite, setIsFavorite] = useState("");
   const [userFavoritesList, setUserFavoritesList] = useState([]);
 
-  const truncatedDescription = truncateDescription(description, 118);
+  const truncatedDescription = truncateDescription(description, 88);
 
   const avatarURL = avatar
     ? `${api.defaults.baseURL}/files/${avatar}`

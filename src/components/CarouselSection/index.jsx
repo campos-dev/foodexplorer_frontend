@@ -4,6 +4,17 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export function CarouselSection({ title, items }) {
+  if (items.length === 1) {
+    return (
+      <Container>
+        {title}
+        <div id="picsCaroussel">
+          <div id="CarouselContainer">{items[0]}</div>
+        </div>
+      </Container>
+    );
+  }
+
   const [currentSlide, setCurrentSlide] = React.useState(0);
 
   const next = () => {
@@ -40,7 +51,9 @@ export function CarouselSection({ title, items }) {
             className="carousel slide"
             infiniteLoop
             centerMode
-            centerSlidePercentage={windowWidth > 650 ? 50 : 80}
+            centerSlidePercentage={
+              windowWidth > 1250 ? 40 : windowWidth > 650 ? 50 : 80
+            }
             showThumbs={false}
             showArrows={false}
             swipeable={false}

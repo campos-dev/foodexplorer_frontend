@@ -16,6 +16,9 @@ export const Container = styled.div`
   #CarouselContainer {
     position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
     overflow: auto;
     width: 100%;
     scrollbar-width: none; /*For Firefox */

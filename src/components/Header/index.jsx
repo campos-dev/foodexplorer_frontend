@@ -54,7 +54,10 @@ export function Header() {
           Icon={HiOutlineMagnifyingGlass}
           placeholder="Search for a dish or by ingredients"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => {
+            setSearch(e.target.value);
+            navigate("/");
+          }}
         />
         {user.role === USER_ROLE.ADMIN ? (
           <Button
