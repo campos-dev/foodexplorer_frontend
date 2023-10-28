@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { api } from "../../services/api";
+
+import { SearchContext } from "../../hooks/useSearch";
 
 import { Container, Content } from "./styles";
 import { Header } from "../../components/Header";
@@ -14,8 +16,10 @@ export function Home() {
   const [dessertItems, setDessertItems] = useState([]);
   const [drinkItems, setDrinkItems] = useState([]);
 
+  const { search } = useContext(SearchContext);
+
   useEffect(() => {
-    api.get("dishes?title&tags&category=meal").then((response) => {
+    api.get(`dishes?search=${search}&category=meal`).then((response) => {
       const meals = response.data;
       const mealComponents = meals.map((meal) => (
         <FoodThumbCaroussel
@@ -31,7 +35,7 @@ export function Home() {
       setMealItems(mealComponents);
     });
 
-    api.get("dishes?title&tags&category=dessert").then((response) => {
+    api.get(`dishes?search=${search}&category=dessert`).then((response) => {
       const desserts = response.data;
       const dessertComponents = desserts.map((dessert) => (
         <FoodThumbCaroussel
@@ -47,7 +51,7 @@ export function Home() {
       setDessertItems(dessertComponents);
     });
 
-    api.get("dishes?title&tags&category=drink").then((response) => {
+    api.get(`dishes?search=${search}&category=drink`).then((response) => {
       const drinks = response.data;
       const drinkComponents = drinks.map((drink) => (
         <FoodThumbCaroussel
@@ -62,7 +66,7 @@ export function Home() {
       ));
       setDrinkItems(drinkComponents);
     });
-  }, []);
+  }, [search]);
   return (
     <Container>
       <Header />
@@ -77,11 +81,17 @@ export function Home() {
             </div>
           </div>
 
-          <CarouselSection title="Meals" items={mealItems} />
+          {mealItems.length > 0 && (
+            <CarouselSection title="Meals" items={mealItems} />
+          )}
 
-          <CarouselSection title="Drinks" items={drinkItems} />
+          {drinkItems.length > 0 && (
+            <CarouselSection title="Drinks" items={drinkItems} />
+          )}
 
-          <CarouselSection title="Desserts" items={dessertItems} />
+          {dessertItems.length > 0 && (
+            <CarouselSection title="Desserts" items={dessertItems} />
+          )}
         </Content>
         <Footer />
       </main>

@@ -7,7 +7,7 @@ import { AuthRoutes } from "./authRoutes";
 import { USER_ROLE } from "../utils/roles";
 
 export function Routes() {
-  const { user, loading, signOut } = useAuth();
+  const { user, loading } = useAuth();
 
   if (loading) {
     return <div>Loading...</div>;
