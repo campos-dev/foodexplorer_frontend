@@ -12,7 +12,7 @@ export const Container = styled.div`
   border: none;
   border-radius: 0.5rem;
 
-  > svg {
+  > div > svg {
     width: 3.2rem;
     height: 3.2rem;
     margin-left: 2vw;

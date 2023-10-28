@@ -80,6 +80,7 @@ export const Content = styled.div`
     }
 
     > #aboutItemContainer {
+      width: 100%;
       display: flex;
       flex-direction: column;
 
@@ -124,6 +125,7 @@ export const Content = styled.div`
 
   @media (max-width: ${BREAKPOINTS.lg}) {
     #itemContainer {
+      padding-top: 60rem;
       flex-direction: column;
 
       #imgItemContainer {
@@ -172,13 +174,14 @@ export const Content = styled.div`
 
           > button:first-of-type {
             white-space: nowrap;
-            margin-left: 20vw;
+            margin-left: 5vw;
             padding: 0 10vw;
             font-size: 3vw;
           }
 
           > button:last-of-type {
             white-space: nowrap;
+            margin-left: 0;
             font-size: 3vw;
           }
         }

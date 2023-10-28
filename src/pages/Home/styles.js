@@ -16,8 +16,11 @@ export const Container = styled.div`
     grid-area: "content";
     overflow-y: auto;
 
+    display: flex;
+    flex-direction: column;
+
     > footer {
-      margin-top: 12rem;
+      margin-top: auto;
     }
   }
 `;

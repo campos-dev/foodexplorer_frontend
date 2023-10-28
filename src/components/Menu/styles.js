@@ -50,6 +50,9 @@ export const Container = styled.aside`
     margin-top: 1rem;
     border-bottom: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
   }
+  footer {
+    margin-top: auto;
+  }
 
   @media (min-width: ${BREAKPOINTS.lg}) {
     &[data-menuisopen="true"] {

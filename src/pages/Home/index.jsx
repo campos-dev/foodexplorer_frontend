@@ -81,6 +81,13 @@ export function Home() {
             </div>
           </div>
 
+          {search && (
+            <>
+              <h1>Filter is on</h1>
+              <h2>Erase the search filter to see all dishes</h2>
+            </>
+          )}
+
           {mealItems.length > 0 && (
             <CarouselSection title="Meals" items={mealItems} />
           )}

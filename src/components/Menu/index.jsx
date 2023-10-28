@@ -7,8 +7,14 @@ import { Footer } from "../../components/Footer";
 
 import { useAuth } from "../../hooks/auth";
 
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { SearchContext } from "../../hooks/useSearch";
+
 export function Menu({ menuIsOpen, setMenuIsOpen }) {
+  const navigate = useNavigate();
   const { signOut } = useAuth();
+  const { search, setSearch } = useContext(SearchContext);
 
   return (
     <Container data-menuisopen={menuIsOpen}>
@@ -21,7 +27,14 @@ export function Menu({ menuIsOpen, setMenuIsOpen }) {
       <div className="contentBox">
         <Input
           Icon={HiOutlineMagnifyingGlass}
-          placeholder="Search for a dish or by ingredients"
+          onIconClick={() => {
+            navigate("/");
+            setMenuIsOpen(false);
+          }}
+          placeholder="type a dish or ingredient and press the icon to search"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
         />
 
         <Logout id="buttonLogout" onClick={signOut}>

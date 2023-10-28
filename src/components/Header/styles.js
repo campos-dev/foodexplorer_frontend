@@ -59,6 +59,10 @@ export const Container = styled.div`
       display: none;
     }
 
+    #addDish {
+      font-size: 2rem;
+    }
+
     #buttonMenuCellphone {
       display: flex;
 
