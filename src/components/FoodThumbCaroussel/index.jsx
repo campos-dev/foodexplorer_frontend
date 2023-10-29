@@ -124,14 +124,18 @@ export function FoodThumbCaroussel({
         <div id="imgContainer">
           <img src={avatarURL} alt={picName} />
         </div>
-        <h1>{picName} &#62;</h1>
+        <h1>{picName}</h1>
         <p>{truncatedDescription}</p>
       </Link>
       <span>${price}</span>
-      <div>
-        <AmountItems amount={1} />
-        <Button title="Buy" />
-      </div>
+      {user.role !== USER_ROLE.ADMIN ? (
+        <div id="buyAmountBox">
+          <AmountItems amount={1} />
+          <Button title="Buy" />
+        </div>
+      ) : (
+        <></>
+      )}
     </Container>
   );
 }

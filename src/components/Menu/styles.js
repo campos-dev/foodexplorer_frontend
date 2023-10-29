@@ -54,7 +54,7 @@ export const Container = styled.aside`
     margin-top: auto;
   }
 
-  @media (min-width: ${BREAKPOINTS.lg}) {
+  @media (min-width: 1025px) {
     &[data-menuisopen="true"] {
       display: none;
     }

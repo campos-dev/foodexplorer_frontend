@@ -61,6 +61,7 @@ export const Container = styled.div`
           font-size: 2.5vw;
 
           svg {
+            padding-bottom: 0.3rem;
             font-size: 2vw;
           }
         }
@@ -85,8 +86,8 @@ export const Content = styled.div`
 
     position: relative;
 
-    margin-top: 15vw;
-    margin-bottom: 8vw;
+    margin-top: 8vw;
+    margin-bottom: 5vw;
     border-radius: 0.5rem;
     background: ${({ theme }) => theme.COLORS.GRADIENT_200};
 

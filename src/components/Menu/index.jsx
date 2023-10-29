@@ -39,7 +39,7 @@ export function Menu({ menuIsOpen, setMenuIsOpen }) {
         />
 
         <Logout id="buttonLogout" onClick={signOut}>
-          Sair
+          Sign out
         </Logout>
         <div id="line"></div>
       </div>

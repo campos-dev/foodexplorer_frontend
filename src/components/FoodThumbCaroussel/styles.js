@@ -3,7 +3,7 @@ import { BREAKPOINTS } from "../../styles/breakpoints";
 
 export const Container = styled.div`
   width: 32.4rem;
-  height: 46.2rem;
+  height: 50.2rem;
 
   padding: 0 6.4rem;
 
@@ -54,10 +54,9 @@ export const Container = styled.div`
     }
 
     > h1 {
-      font-size: 2.4vw;
+      font-size: 2vw;
       font-weight: bold;
-
-      white-space: nowrap;
+      line-height: 3rem;
 
       margin-top: 1.5rem;
     }
@@ -66,7 +65,7 @@ export const Container = styled.div`
       font-family: "Roboto", sans-serif;
       font-size: 1.4rem;
 
-      /* margin-top: 0.5rem; */
+      margin-top: 1rem;
 
       text-align: center;
     }
@@ -80,7 +79,7 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.CAKE_200};
   }
 
-  div {
+  #buyAmountBox {
     width: 10rem;
     height: 3.8rem;
 
@@ -90,7 +89,7 @@ export const Container = styled.div`
 
     font-family: "Roboto", sans-serif;
 
-    margin: 1.5rem 0;
+    margin: 3rem 0 0;
   }
 
   @media (max-width: ${BREAKPOINTS.xmd}) {
@@ -105,10 +104,11 @@ export const Container = styled.div`
     a {
       h1 {
         font-size: 4vw;
+        line-height: 5rem;
       }
 
       p {
-        font-size: 3vw;
+        font-size: 2.3vw;
         margin-bottom: 2vw;
       }
     }

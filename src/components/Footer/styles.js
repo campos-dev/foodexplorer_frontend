@@ -12,7 +12,7 @@ export const Container = styled.footer`
   background: ${({ theme }) => theme.COLORS.DARK_600};
 
   margin-top: 5rem;
-  padding: 0 12.3rem;
+  padding: 3rem 12.3rem;
 
   > #logo {
     display: flex;

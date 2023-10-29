@@ -78,8 +78,14 @@ export function Header() {
           ></Button>
         )}
 
-        <Button id="buttonOrdersCellphone" Icon={PiReceipt} />
-        <span id="amountButtonOrderCellphone">{orderAmount}</span>
+        {user.role !== USER_ROLE.ADMIN ? (
+          <>
+            <Button id="buttonOrdersCellphone" Icon={PiReceipt} />
+            <span id="amountButtonOrderCellphone">{orderAmount}</span>
+          </>
+        ) : (
+          <></>
+        )}
 
         <Logout id="buttonLogout" onClick={signOut}>
           <MdOutlineLogout />
