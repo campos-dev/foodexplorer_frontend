@@ -9,6 +9,7 @@ import { CarouselSection } from "../../components/CarouselSection";
 import { FoodThumbCaroussel } from "../../components/FoodThumbCaroussel";
 import { Footer } from "../../components/Footer";
 
+import { FiX } from "react-icons/fi";
 import macarons from "../../assets/macarons.png";
 
 export function Home() {
@@ -16,7 +17,11 @@ export function Home() {
   const [dessertItems, setDessertItems] = useState([]);
   const [drinkItems, setDrinkItems] = useState([]);
 
-  const { search } = useContext(SearchContext);
+  const { search, setSearch } = useContext(SearchContext);
+
+  function handleCleanFilter() {
+    setSearch("");
+  }
 
   useEffect(() => {
     api.get(`dishes?search=${search}&category=meal`).then((response) => {
@@ -82,10 +87,13 @@ export function Home() {
           </div>
 
           {search && (
-            <>
-              <h1>Filter is on</h1>
-              <h2>Erase the search filter to see all dishes</h2>
-            </>
+            <div id="searchFilter">
+              <h3>Remove the search filter:</h3>
+              <button onClick={handleCleanFilter}>
+                <FiX />
+                {search}
+              </button>
+            </div>
           )}
 
           {mealItems.length > 0 && (

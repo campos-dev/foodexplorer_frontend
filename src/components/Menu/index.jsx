@@ -27,11 +27,12 @@ export function Menu({ menuIsOpen, setMenuIsOpen }) {
       <div className="contentBox">
         <Input
           Icon={HiOutlineMagnifyingGlass}
+          value={search}
           onIconClick={() => {
             navigate("/");
             setMenuIsOpen(false);
           }}
-          placeholder="type a dish or ingredient and press the icon to search"
+          placeholder="Search for a dish or by ingredients"
           onChange={(e) => {
             setSearch(e.target.value);
           }}

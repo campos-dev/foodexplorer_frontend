@@ -19,8 +19,52 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
+    #searchFilter {
+      display: flex;
+      align-items: center;
+
+      gap: 2rem;
+
+      > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+
+        font-size: 2.3rem;
+
+        background: ${({ theme }) => theme.COLORS.TOMATO_100};
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 0.5rem;
+
+        > svg {
+          padding-top: 0.3rem;
+          font-size: 1.5rem;
+        }
+      }
+    }
+
     > footer {
       margin-top: auto;
+    }
+  }
+
+  @media (max-width: ${BREAKPOINTS.sm}) {
+    main {
+      #searchFilter {
+        h3 {
+          font-size: 2.7vw;
+        }
+
+        button {
+          font-size: 2.5vw;
+
+          svg {
+            font-size: 2vw;
+          }
+        }
+      }
     }
   }
 `;

@@ -30,12 +30,17 @@ export function Header() {
     navigate("/add");
   }
 
+  function handleMenuOpen() {
+    setSearch("");
+    setMenuIsOpen(true);
+  }
+
   return (
     <>
       <Menu menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen} />
       <Container>
         <button id="buttonMenuCellphone">
-          <AiOutlineMenu onClick={() => setMenuIsOpen(true)} />
+          <AiOutlineMenu onClick={handleMenuOpen} />
         </button>
 
         <div id="logoBox">
