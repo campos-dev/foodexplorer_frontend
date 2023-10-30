@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AmountItems } from "../AmountItems";
-import { Button } from "../Button";
 import { Container } from "./styles";
 
 import { useAuth } from "../../hooks/auth";
@@ -130,8 +129,7 @@ export function FoodThumbCaroussel({
       <span>${price}</span>
       {user.role !== USER_ROLE.ADMIN ? (
         <div id="buyAmountBox">
-          <AmountItems amount={1} />
-          <Button title="Buy" />
+          <AmountItems id={id} />
         </div>
       ) : (
         <></>

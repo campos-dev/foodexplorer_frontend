@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Container, Logo, Logout } from "./styles";
@@ -16,11 +16,14 @@ import { USER_ROLE } from "../../utils/roles";
 
 import { useContext } from "react";
 import { SearchContext } from "../../hooks/useSearch";
+import { AmountContext } from "../../hooks/useAmount";
+import { api } from "../../services/api";
 
 export function Header() {
-  let orderAmount = 0;
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const { search, setSearch } = useContext(SearchContext);
+  const { cartUpdated, setCartUpdated } = useContext(AmountContext);
+  const [totalAmount, setTotalAmount] = useState(0);
 
   const { user, signOut } = useAuth();
 
@@ -34,6 +37,19 @@ export function Header() {
     setSearch("");
     setMenuIsOpen(true);
   }
+
+  useEffect(() => {
+    async function printTotalAmount() {
+      const userCart = await api.get(`/cart`);
+      const tableRows = userCart.data;
+      let tempTotal = 0;
+      for (let row of tableRows) {
+        tempTotal += row.amount;
+      }
+      setTotalAmount(tempTotal);
+    }
+    printTotalAmount();
+  }, [cartUpdated]);
 
   return (
     <>
@@ -74,14 +90,14 @@ export function Header() {
           <Button
             id="buttonOrders"
             Icon={PiReceipt}
-            title={`Orders (${orderAmount})`}
+            title={`Orders (${totalAmount})`}
           ></Button>
         )}
 
         {user.role !== USER_ROLE.ADMIN ? (
           <>
             <Button id="buttonOrdersCellphone" Icon={PiReceipt} />
-            <span id="amountButtonOrderCellphone">{orderAmount}</span>
+            <span id="amountButtonOrderCellphone">{totalAmount}</span>
           </>
         ) : (
           <></>
