@@ -36,10 +36,6 @@ export const Container = styled.div`
     margin-right: 1.4rem;
   }
 
-  button:last-child {
-    margin-left: 2rem;
-  }
-
   @media (max-width: ${BREAKPOINTS.xmd}) {
     .changeNum {
       font-size: 4vw;

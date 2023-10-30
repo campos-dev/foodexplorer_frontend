@@ -46,7 +46,7 @@ export function AddDish() {
     }
 
     try {
-      await api.post(
+      const response = await api.post(
         "/dishes",
         {
           title,
@@ -58,7 +58,9 @@ export function AddDish() {
         { withCredentials: true }
       );
 
-      await handleUpdateAvatar();
+      const dishes_id = response.data.dishes_id;
+
+      await handleUpdateAvatar(dishes_id);
 
       alert("Item was registered succesfully!");
       navigate("/");

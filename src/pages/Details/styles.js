@@ -111,14 +111,14 @@ export const Content = styled.div`
         display: flex;
         align-items: center;
 
-        > button:first-of-type {
+        /* > button:first-of-type {
           width: 11rem;
         }
 
         > button:last-of-type {
           margin-left: 3.2rem;
           background-color: ${({ theme }) => theme.COLORS.DARK_600};
-        }
+        } */
       }
     }
   }
@@ -165,24 +165,11 @@ export const Content = styled.div`
             height: 20vw;
             width: 20vw;
             > button {
-              font-size: 6vw;
+              font-size: 2.5vw;
             }
             > p {
               font-size: 4vw;
             }
-          }
-
-          > button:first-of-type {
-            white-space: nowrap;
-            margin-left: 5vw;
-            padding: 0 10vw;
-            font-size: 3vw;
-          }
-
-          > button:last-of-type {
-            white-space: nowrap;
-            margin-left: 0;
-            font-size: 3vw;
           }
         }
       }

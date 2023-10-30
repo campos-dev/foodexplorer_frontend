@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
-import { Button } from "../../components/Button";
 import { Tag } from "../../components/Tag";
 
 import { AmountItems } from "../../components/AmountItems";
@@ -59,9 +58,7 @@ export function Details() {
                   ))}
               </div>
               <div id="addItemsContainer">
-                <AmountItems amount={0} />
-                <Button id="addButton" title={`add ∙ $${dishes.price}`} />
-                <Button id="removeDishButton" title="exclude dish" />
+                <AmountItems id={id} />
               </div>
             </div>
           </div>

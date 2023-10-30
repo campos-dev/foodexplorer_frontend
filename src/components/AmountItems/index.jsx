@@ -16,10 +16,12 @@ export function AmountItems({ id }) {
       const response = await api.get(`/dishes/${id}`);
       const dish = response.data;
 
-      await api.post("/cart", { amount, id });
-      setAmount(0);
-      setCartUpdated((prevState) => !prevState);
-      return alert(`${amount} ${dish.title} added to your shopping cart`);
+      if (amount > 0) {
+        await api.post("/cart", { amount, id });
+        setAmount(0);
+        setCartUpdated((prevState) => !prevState);
+        return alert(`${amount} ${dish.title} added to your shopping cart`);
+      }
     } catch (error) {
       return console.error(error);
     }
@@ -50,7 +52,7 @@ export function AmountItems({ id }) {
         <button className="changeNum" onClick={handleIncreaseAmount}>
           +
         </button>
-        <Button title="Buy" onClick={handleBuy} />
+        <Button id="buyButton" title="Buy" onClick={handleBuy} />
       </div>
     </Container>
   );
