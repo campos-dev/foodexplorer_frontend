@@ -13,7 +13,7 @@ export const Container = styled.div`
   align-items: center;
   grid-area: "header";
 
-  padding: 2.4rem 12rem;
+  padding: 2.4rem 10%;
 
   > #buttonMenuCellphone,
   #buttonOrdersCellphone,
@@ -28,7 +28,7 @@ export const Container = styled.div`
   > button:nth-of-type(2) {
     white-space: nowrap;
     max-width: 25rem;
-    margin: 0 4.2rem;
+    /* margin: 0 4.2rem; */
 
     > svg {
       font-size: clamp(1.6rem, 5vw, 3.2rem);
@@ -36,7 +36,7 @@ export const Container = styled.div`
   }
 
   #logoBox {
-    margin-right: 3.2rem;
+    /* margin-right: 3.2rem; */
 
     display: flex;
     flex-direction: column;
