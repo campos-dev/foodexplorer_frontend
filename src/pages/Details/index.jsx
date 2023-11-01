@@ -20,7 +20,9 @@ export function Details() {
 
   useEffect(() => {
     async function fetchDishes() {
-      const response = await api.get(`/dishes/${id}`);
+      const response = await api.get(`/dishes/${id}`, {
+        withCredentials: true,
+      });
       const dishData = response.data;
       setDishes(dishData);
       const avatarUrl = dishData.avatar

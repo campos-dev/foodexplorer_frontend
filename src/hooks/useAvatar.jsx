@@ -20,7 +20,9 @@ export function useAvatar() {
     if (avatarFile) {
       const fileUploadForm = new FormData();
       fileUploadForm.append("avatar", avatarFile);
-      await api.patch(`/dishes/avatar/${id}`, fileUploadForm);
+      await api.patch(`/dishes/avatar/${id}`, fileUploadForm, {
+        withCredentials: true,
+      });
     }
   }
 

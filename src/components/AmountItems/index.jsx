@@ -13,11 +13,13 @@ export function AmountItems({ id }) {
 
   async function handleBuy() {
     try {
-      const response = await api.get(`/dishes/${id}`);
+      const response = await api.get(`/dishes/${id}`, {
+        withCredentials: true,
+      });
       const dish = response.data;
 
       if (amount > 0) {
-        await api.post("/cart", { amount, id });
+        await api.post("/cart", { amount, id }, { withCredentials: true });
         setAmount(0);
         setCartUpdated((prevState) => !prevState);
         return alert(`${amount} ${dish.title} added to your shopping cart`);

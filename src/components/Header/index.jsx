@@ -40,7 +40,7 @@ export function Header() {
 
   useEffect(() => {
     async function printTotalAmount() {
-      const userCart = await api.get(`/cart`);
+      const userCart = await api.get(`/cart`, { withCredentials: true });
       const tableRows = userCart.data;
       let tempTotal = 0;
       for (let row of tableRows) {

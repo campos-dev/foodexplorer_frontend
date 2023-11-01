@@ -37,13 +37,13 @@ export function FoodThumbCaroussel({
   async function handleFavoriteClick() {
     try {
       if (isFavorite) {
-        await api.delete(`/favorites/${id}`);
+        await api.delete(`/favorites/${id}`, { withCredentials: true });
 
         setUserFavoritesList((prevList) =>
           prevList.filter((dish) => dish.dishes_id !== id)
         );
       } else {
-        await api.post(`/favorites/${id}`);
+        await api.post(`/favorites/${id}`, { withCredentials: true });
       }
       setIsFavorite(!isFavorite);
     } catch (error) {
@@ -54,7 +54,9 @@ export function FoodThumbCaroussel({
   useEffect(() => {
     async function checkFavorite() {
       try {
-        const response = await api.get(`/favorites/${user.id}`);
+        const response = await api.get(`/favorites/${user.id}`, {
+          withCredentials: true,
+        });
 
         for (let dish of response.data) {
           setUserFavoritesList((prevList) => [...prevList, dish]);
