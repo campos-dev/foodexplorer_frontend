@@ -55,9 +55,7 @@ export function FoodThumbCaroussel({
     async function checkFavorite() {
       try {
         const response = await api.get(`/favorites/${user.id}`);
-        if (response.data.length === 0) {
-          return console.log("There's no favorites");
-        }
+
         for (let dish of response.data) {
           setUserFavoritesList((prevList) => [...prevList, dish]);
         }

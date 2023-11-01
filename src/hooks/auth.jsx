@@ -31,6 +31,7 @@ function AuthProvider({ children }) {
   function signOut() {
     localStorage.removeItem("@foodexplorer:user");
     setData({});
+    window.location.href = "/";
   }
 
   useEffect(() => {
