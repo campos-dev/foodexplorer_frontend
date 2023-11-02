@@ -24,53 +24,61 @@ export function Home() {
   }
 
   useEffect(() => {
-    api.get(`dishes?search=${search}&category=meal`).then((response) => {
-      const meals = response.data;
-      const mealComponents = meals.map((meal) => (
-        <FoodThumbCaroussel
-          key={meal.id}
-          id={meal.id}
-          avatar={meal.avatar}
-          picName={meal.title}
-          description={meal.description}
-          price={meal.price}
-          amount={meal.amount}
-        />
-      ));
-      setMealItems(mealComponents);
-    });
+    api
+      .get(`dishes?search=${search}&category=meal`, { withCredentials: true })
+      .then((response) => {
+        const meals = response.data;
+        const mealComponents = meals.map((meal) => (
+          <FoodThumbCaroussel
+            key={meal.id}
+            id={meal.id}
+            avatar={meal.avatar}
+            picName={meal.title}
+            description={meal.description}
+            price={meal.price}
+            amount={meal.amount}
+          />
+        ));
+        setMealItems(mealComponents);
+      });
 
-    api.get(`dishes?search=${search}&category=dessert`).then((response) => {
-      const desserts = response.data;
-      const dessertComponents = desserts.map((dessert) => (
-        <FoodThumbCaroussel
-          key={dessert.id}
-          id={dessert.id}
-          avatar={dessert.avatar}
-          picName={dessert.title}
-          description={dessert.description}
-          price={dessert.price}
-          amount={dessert.amount}
-        />
-      ));
-      setDessertItems(dessertComponents);
-    });
+    api
+      .get(`dishes?search=${search}&category=dessert`, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        const desserts = response.data;
+        const dessertComponents = desserts.map((dessert) => (
+          <FoodThumbCaroussel
+            key={dessert.id}
+            id={dessert.id}
+            avatar={dessert.avatar}
+            picName={dessert.title}
+            description={dessert.description}
+            price={dessert.price}
+            amount={dessert.amount}
+          />
+        ));
+        setDessertItems(dessertComponents);
+      });
 
-    api.get(`dishes?search=${search}&category=drink`).then((response) => {
-      const drinks = response.data;
-      const drinkComponents = drinks.map((drink) => (
-        <FoodThumbCaroussel
-          key={drink.id}
-          id={drink.id}
-          avatar={drink.avatar}
-          picName={drink.title}
-          description={drink.description}
-          price={drink.price}
-          amount={drink.amount}
-        />
-      ));
-      setDrinkItems(drinkComponents);
-    });
+    api
+      .get(`dishes?search=${search}&category=drink`, { withCredentials: true })
+      .then((response) => {
+        const drinks = response.data;
+        const drinkComponents = drinks.map((drink) => (
+          <FoodThumbCaroussel
+            key={drink.id}
+            id={drink.id}
+            avatar={drink.avatar}
+            picName={drink.title}
+            description={drink.description}
+            price={drink.price}
+            amount={drink.amount}
+          />
+        ));
+        setDrinkItems(drinkComponents);
+      });
   }, [search]);
   return (
     <Container>
