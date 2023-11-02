@@ -13,8 +13,12 @@ import { api } from "../../services/api";
 
 import avatarPlaceholder from "../../assets/img-placeholder.png";
 
+import { useAuth } from "../../hooks/auth";
+import { USER_ROLE } from "../../utils/roles";
+
 export function Details() {
   const { id } = useParams();
+  const { user } = useAuth();
   const [dishes, setDishes] = useState(null);
   const [avatarURL, setAvatarURL] = useState(null);
 
@@ -59,9 +63,13 @@ export function Details() {
                     <Tag key={index} title={tag.name} />
                   ))}
               </div>
-              <div id="addItemsContainer">
-                <AmountItems id={id} />
-              </div>
+              {user.role !== USER_ROLE.ADMIN ? (
+                <div id="addItemsContainer">
+                  <AmountItems id={id} />
+                </div>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </Content>
