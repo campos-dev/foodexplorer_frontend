@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://explorer-foodexplorer.netlify.app/api",
+  baseURL: "https://explorer-foodexplorer.onrender.com",
   withCredentials: true,
 });
