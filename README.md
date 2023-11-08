@@ -8,6 +8,7 @@ Os usuários ou administradores devem se autenticar através de uma tela de logi
 
 Para testar as funcionalidade de um administrador localmente: baixe os arquivos através do Github na sua máquina, inicialize tanto o frontend quanto o backend (após rodar o npm install) com o comando npm run dev crie um novo usuário e modifique o campo Role dele manualmente para admin dentro da tabela users.
 Ao logar novamente neste aplicativo com este usuário as funções de administrador estarão disponíveis.
+Para testar remotamente o email é: admin@email.com e o pass:123.
 
 Role de administrador permite que ele adicione ou edite os pratos do app. Na porção logo abaixo da logomarca constará admin ou o nome do usuário logado para identificar entre o usuário e um administrador. Na porção superior da tela ele terá acesso ao botão add dish, no qual poderá adicionar novos pratos e acima do card de cada prato haverá um ícone de lápis que ao ser clicado permitirá a edição de um prato, resgatando as informações adicionadas anteriormente, além de permitir adicionar uma imagem para o prato. Caso ele não selecione a imagem uma figura com a mensagem no image available será utilizada.
 Alguns verificadores atuarão para checar se o administrador preencheu campos obrigatórios como o nome do prato e o seu valor e não permitirão que ele faça o registro sem que estes campos sejam preenchidos. O valor aceita números decimais que deverão ser separados dos valores inteiros com um ponto.
